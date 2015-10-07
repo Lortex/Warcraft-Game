@@ -1,3 +1,5 @@
+
+
 class Unit
 attr_reader :health_points, :attack_power
   
@@ -7,11 +9,17 @@ attr_reader :health_points, :attack_power
   end
   
   def attack!(enemy)
-    enemy.damage(@attack_power)
+    enemy.damage(@attack_power) if alive?
   end
 
   def damage(ap)
-    @health_points -= ap
+    @health_points -= ap if alive?
+    @health_points = 0 if @health_points < 0 
   end
+
+  def alive?
+    health_points > 0
+  end
+
 end
 

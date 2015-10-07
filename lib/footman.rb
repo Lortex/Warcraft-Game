@@ -2,9 +2,9 @@
 require_relative 'unit'
 class Footman < Unit
   
-  def initialize
-    @health_points = 60
-    @attack_power = 10
+  def initialize(health_points = 60, attack_power = 10)
+    @health_points = health_points
+    @attack_power = attack_power
   end
 
   #def attack!(enemy)
